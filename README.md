@@ -7,4 +7,4 @@
 Naman Singh,
 Nishant Singh,
 Omansh Arora,
-Pranav Bhardwaj.
+Pranav Bharadwaj.
