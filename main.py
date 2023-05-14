@@ -132,10 +132,6 @@ for i in l:
         flag = 1
         break
     
-# print(l)
-
-# if flag == 1:
-#     out.write("error\n")
 
 
 for i in l:
