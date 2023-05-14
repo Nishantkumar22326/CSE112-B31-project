@@ -92,6 +92,18 @@ def ld(s):
     out.write(reg[s[1]])
     out.write(var_dict[s[2]])
     out.write('\n')
+def jgt(s):
+    temp=bin(label_num)
+    out.write(opcode["jgt"])
+    out.write(unused["jgt"])
+    out.write(label_dict[s[1]])
+    out.write("\n")    
+def jmp(s):
+    temp=bin(label_num)
+    out.write(opcode["jmp"])
+    out.write(unused["jmp"])
+    out.write(label_dict[s[1]])
+    out.write("\n")    
 
 def gen(s):
     out.write(opcode[s[0]])
@@ -149,4 +161,8 @@ for i in l:
     elif(v[0] == 'je'):
         je(v)
         label_num -= 1
+    elif(v[0]=='jmp'):
+        jmp(v)
+    elif (v[0]=='jgt'):
+        jgt(v)
 out.close()
