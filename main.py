@@ -133,6 +133,14 @@ def gen(s):
     out.write(reg[s[2]]) 
     out.write('\n')
 
+def jlt(s):
+    temp = bin(label_num)
+    label_dict[s[1]] = temp[2:]
+    out.write(opcode['jlt'])
+    out.write(unused['jlt'])
+    out.write(label_dict[s[1]])
+    out.write("\n")   
+    
 with open ("input.txt") as f:
     l = f.readlines()
     
@@ -188,6 +196,7 @@ if(flag == 0):
             gen(v)
         elif(v[0] == 'rs' or v[0] == "ls"):
             imm(v)
-
+        elif(v[0] == 'jlt'):
+        jlt(v)
 out.close()
 
