@@ -118,6 +118,14 @@ def je(s):
         out.write(bitcon(bin(label_num)[2::]))
         out.write('\n')
 
+def jlt(s):
+    temp = bin(label_num)
+    label_dict[s[1]] = temp[2:]
+    out.write(opcode['jlt'])
+    out.write(unused['jlt'])
+    out.write(label_dict[s[1]])
+    out.write("\n")   
+    
 with open ("input.txt") as f:
     l = f.readlines()
     
@@ -132,8 +140,30 @@ for i in l:
         flag = 1
         break
     
-
-
+if(flag == 0):
+    for i in l:
+        v = i.split()
+        # print(v)
+        if(v[0] == "mov"):
+            mov(v[-1])
+        elif(v[0] == 'add' or v[0] == 'sub' or v[0] == "mul" or v[0] == "and" or v[0] == "or" or v[0] == "xor"):
+            gen_reg(v)
+        elif(v[0] == 'hlt'):
+            hlt()
+        elif(v[0] == "var"):
+            var(v[-1])
+            var_num += 1
+        elif(v[0] == "st"):
+            st(v)
+        elif(v[0] == "ld"):
+            ld(v)
+        elif(v[0] == "div" or v[0] == "not" or v[0] == "cmp"):
+            gen(v)
+        elif(v[0] == 'rs' or v[0] == "ls"):
+            imm(v)
+        elif(v[0] == 'jlt'):
+        jlt(v)
+        
 for i in l:
     v = i.split()
     print(v)
