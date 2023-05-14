@@ -1,0 +1,11 @@
+var var1
+var var2
+var var3
+ld R1 var1
+ld R2 var2
+st R3 var3
+je hlt_label
+add R1 R2 R
+hlt_label: 
+add R2 R3 R4
+hlt
