@@ -5,6 +5,6 @@
 
 ## Group Members:
 Naman Singh,
-Nishant Singh,
+Nishant Kumar,
 Omansh Arora,
 Pranav Bharadwaj.
