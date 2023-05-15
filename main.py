@@ -149,6 +149,14 @@ def check_halt(l):
         line += 1
     return -2
 
+def jlt(s):
+    temp = bin(label_num)
+    label_dict[s[1]] = temp[2:]
+    out.write(opcode['jlt'])
+    out.write(unused['jlt'])
+    out.write(label_dict[s[1]])
+    out.write("\n")   
+    
 with open ("input.txt") as f:
     l = f.readlines()
     
@@ -165,13 +173,6 @@ line = 1
 
 for i in l:
     v = i.split()
-    if v[0] == "var" and line >= check_var(l):
-        out.write("Please Declare all variables at the beginning of the program\n")
-        # exit()
-    line += 1
-
-# Identify variables and labels
-line = 1
 for i in l:
     i = i.strip()
     v = i.split()
@@ -228,4 +229,6 @@ if(flag == 0):
             jgt(v)
         elif (v[0] == 'jmp'):
             jmp(v)
+        elif(v[0] == 'jlt'):
+             jlt(v)
 out.close()
